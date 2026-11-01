@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caderno de Estudo — Defesa do TFC</title>
+<style>
+:root{color-scheme:light;--paper:#F3F1FC;--card:#fff;--ink:#1D1B31;--soft:#615D80;--line:#E3DFF7;--teal:#00B39B;--tealD:#00816F;--vio:#6C4CF1;--vioD:#4B2FC9;--amb:#FF9A00;--ambL:#FFE9C2;--blue:#2E90FA;--red:#F1493E;--ok:#12B76A;--okb:#D6F7E7;--kob:#FDDCD8;--hov:#FAF9FF;--sh:0 4px 16px rgba(76,59,196,.12)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){color-scheme:dark;--paper:#14122A;--card:#1E1B3A;--ink:#EFEDFF;--soft:#A9A5CC;--line:#35305F;--ambL:#4A3510;--okb:#0F3B2A;--kob:#4A1E1B;--hov:#26224A;--sh:0 4px 16px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}html,body{margin:0}html{scroll-padding-top:12px}
+body{background:var(--paper);background-image:radial-gradient(circle at 6% 4%,rgba(108,76,241,.14),transparent 40%),radial-gradient(circle at 96% 18%,rgba(0,179,155,.14),transparent 38%);background-attachment:fixed;color:var(--ink);font-family:"Segoe UI",-apple-system,"Helvetica Neue",Arial,sans-serif;min-height:100vh;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+.serif,h1,h2,h3{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+.spiral{height:14px;background:repeating-linear-gradient(90deg,transparent 0 18px,var(--soft) 18px 20px);opacity:.35}
+header.top{background:linear-gradient(120deg,var(--vioD),var(--vio) 45%,var(--teal));color:#FBFAFF;padding:22px 28px 18px;box-shadow:var(--sh);position:relative}
+.eyebrow{text-transform:uppercase;letter-spacing:2.5px;font-size:11px;color:#FFD98A;font-weight:700;margin-bottom:4px}
+header h1{margin:0;font-size:26px}.sub{margin-top:6px;font-size:13.5px;color:#E4E7F5;max-width:620px;line-height:1.5}
+.badges{position:absolute;right:26px;top:20px;display:flex;gap:8px}
+.eb{width:56px;height:56px;background:linear-gradient(150deg,#fff,#F3F1FC);color:var(--vioD);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--sh);font-family:Georgia,serif}
+.eb i{font-style:normal;font-size:8px;align-self:flex-start;margin-left:6px;color:var(--soft)}.eb b{font-size:18px;line-height:1}.eb span{font-size:6.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--soft)}
+.layout{display:flex;align-items:flex-start;max-width:1100px;margin:0 auto;padding:22px 16px 50px;gap:22px}
+nav{flex:0 0 210px;position:sticky;top:16px}
+.lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--soft);margin:14px 0 8px 4px}
+.tab{width:100%;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-right:0;border-radius:10px 0 0 10px;padding:12px 14px;margin-bottom:9px;cursor:pointer;font:inherit;font-size:13.5px;display:flex;align-items:center;gap:9px;box-shadow:var(--sh);transition:transform .15s}
+.tab .tag{font-family:Georgia,serif;font-weight:700;font-size:12px;width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:var(--vio);color:#fff;flex:none}
+.tab.on{background:linear-gradient(120deg,var(--vio),var(--teal));color:#fff;transform:translateX(6px);border-color:transparent}.tab.on .tag{background:var(--amb)}
+.tab:hover:not(.on){transform:translateX(3px);border-color:var(--vio)}
+main{flex:1;min-width:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);padding:24px 28px;margin-bottom:18px;animation:in .35s both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.card h2{color:var(--vioD);margin:0 0 14px;font-size:22px;border-bottom:3px solid var(--amb);padding-bottom:10px}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .card h2{color:#B8A8FF}}
+.card p{font-size:14px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:14px}
+.tile{text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:17px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.tile:hover{transform:translateY(-4px);box-shadow:var(--sh);border-color:var(--vio)}
+.tile .tag{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--vio),var(--teal));color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:700;margin-bottom:10px}
+.tile.r .tag{background:linear-gradient(135deg,var(--blue),var(--teal))}.tile.a .tag{background:linear-gradient(135deg,var(--amb),var(--red))}
+.tile h4{margin:4px 0 6px;font-size:15px}.tile p{font-size:12.5px;color:var(--soft);margin:0}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+.stat{background:linear-gradient(135deg,var(--vioD),var(--tealD));color:#fff;border-radius:12px;padding:14px 20px;flex:1 1 130px}.stat:nth-child(2){background:linear-gradient(135deg,var(--amb),var(--red))}.stat:nth-child(3){background:linear-gradient(135deg,var(--blue),var(--vio))}
+.stat .n{font-size:26px;font-weight:700;font-family:Georgia,serif}.stat .l{font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.9}
+.btn{font:inherit;font-size:14px;padding:11px 18px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:transform .12s}
+.btn:hover{transform:translateY(-1px);border-color:var(--vio)}
+.pri{background:linear-gradient(120deg,var(--vio),var(--blue));color:#fff;border:0;font-weight:700}.amb{background:linear-gradient(120deg,var(--amb),#FF6A45);color:#fff;border:0;font-weight:700}
+.btn.on{border-color:var(--vio);background:var(--hov);font-weight:700;color:var(--vio)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin:10px 0}.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--vio),var(--teal),var(--amb));transition:width .35s}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--soft);margin-bottom:6px}.meta .sp{margin-left:auto}
+.pill{padding:3px 10px;border-radius:20px;font-size:10.5px;font-weight:800;text-transform:uppercase;background:#DCEAFF;color:#155FC7}.pill.m{background:#E6E0FF;color:#4B2FC9}.pill.s{background:var(--ambL);color:#B96A00}
+.qt{font-size:17px;font-weight:700;margin:10px 0 16px;line-height:1.5}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;font:inherit;font-size:14.5px;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:9px;cursor:pointer;transition:all .15s}
+.opt:hover{border-color:var(--vio);background:var(--hov);transform:translateX(3px)}
+.opt .k{width:28px;height:28px;border-radius:8px;background:var(--line);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:12px;flex:none}
+.opt.sel{border-color:var(--vio);background:var(--hov)}.opt.sel .k{background:var(--vio);color:#fff}
+.opt.ok{background:var(--okb);border-color:var(--ok);font-weight:700;animation:pop .35s}.opt.ok .k{background:var(--ok);color:#fff}
+.opt.ko{background:var(--kob);border-color:var(--red);font-weight:700;animation:shake .35s}.opt.ko .k{background:var(--red);color:#fff}
+.opt:disabled{cursor:default;transform:none}
+@keyframes pop{50%{transform:scale(1.03)}}@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{margin-top:12px;padding:12px 15px;border-radius:10px;font-size:14px;animation:in .3s both}.fb.ok{background:var(--okb);border-left:4px solid var(--ok)}.fb.ko{background:var(--kob);border-left:4px solid var(--red)}
+hr.q{border:0;border-top:1px dashed var(--line);margin:22px 0}
+.big{font-family:Georgia,serif;font-size:60px;font-weight:700;background:linear-gradient(120deg,var(--vioD),var(--teal),var(--amb));-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center}
+.res{text-align:center;padding:14px 0}.res p{margin:4px 0;color:var(--soft)}
+.rv{border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:10px;padding:13px 16px;margin-bottom:10px;background:var(--card)}.rv.no{border-left-color:var(--red)}
+.rv b{display:block;margin-bottom:6px}.rv .g{color:var(--ok);font-size:13.5px}.rv .w{color:var(--red);font-size:13.5px}
+.hrow{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
+.hide{display:none!important}
+footer{text-align:center;padding:18px;font-size:11.5px;color:var(--soft)}
+@media(max-width:820px){.layout{flex-direction:column;padding:14px 12px 40px;gap:12px}nav{position:static;display:flex;flex-wrap:wrap;gap:8px;width:100%}.lbl{width:100%;margin:6px 0 0}.tab{border-radius:10px;border-right:1px solid var(--line);margin:0;flex:1 1 auto;justify-content:center}.tab.on{transform:none}.badges{display:none}header.top{padding:18px}header h1{font-size:20px}.card{padding:18px 16px}.big{font-size:46px}.qt{font-size:15.5px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="spiral"></div>
+<header class="top">
+  <div class="eyebrow">Defesa do TFC · Metodologia e Redes</div>
+  <h1>Caderno de Estudo — Defesa do TFC</h1>
+  <div class="sub">Rede Wi-Fi corporativa na Escola do Magistério do Soyo. Treine com quizzes rápidos, receba feedback imediato e reveja o gabarito no fim.</div>
+  <div class="badges"><div class="eb"><i>802</i><b>Wi</b><span>Wi-Fi</span></div><div class="eb"><i>AD</i><b>DS</b><span>Servidor</span></div></div>
+</header>
+<div class="layout">
+  <nav id="tabs"></nav>
+  <main id="main"></main>
+</div>
+<footer>Material de apoio ao estudo para a defesa do TFC.</footer>
+<script>
+/* categoria, pergunta, resposta certa, 2 opções erradas */
+const RAW=[
+["M","Qual é a abordagem metodológica do vosso trabalho?","Quantiqualitativa (mista): mede a procura de internet em números e analisa expectativas e impacto nos estudos.","Apenas quantitativa, com cálculos percentuais.","Apenas qualitativa, centrada em entrevistas."],
+["M","Quais são os materiais ou instrumentos utilizados para a recolha de dados?","Questionário, entrevista e observação directa.","Apenas questionário online.","Testes laboratoriais e análise documental."],
+["M","Onde é respondida a pergunta de partida e como é respondida?","No Capítulo III e nas Conclusões, com uma rede Wi-Fi corporativa (Windows Server 2022, AD DS, NPS e RADIUS/WPA2-Enterprise).","Apenas na Introdução, através de hipóteses.","No Capítulo I, pela fundamentação teórica."],
+["M","Sobre a amostra, qual foi a técnica utilizada? Probabilística ou não probabilística?","Não probabilística, por acessibilidade/intencional (50 pessoas: 38 alunos, 10 professores e 2 administrativos).","Probabilística aleatória simples (50 pessoas).","Probabilística estratificada (100 pessoas)."],
+["M","Quantas palavras-chave tem o seu trabalho?","6: Redes de Computadores, Gestão, Segurança, Protocolos de Rede, Serviço de Rede e Controlo de Acesso.","4: Redes, Wi-Fi, Segurança e Servidor.","8: Redes, Wi-Fi, Servidor, DHCP, DNS, AD, NPS e RADIUS."],
+["M","O que é população e amostra?","População: todos os elementos do estudo (2.104 pessoas). Amostra: subconjunto representativo dela (50 pessoas).","População: 50 pessoas. Amostra: 2.104 pessoas.","São sinónimos: o grupo inteiro estudado."],
+["M","Onde se representa a abordagem quantitativa no seu trabalho?","Nos Capítulos II e III: amostra, estatística descritiva (percentagens) e gráficos de satisfação e segurança.","Só na Introdução e nas Conclusões.","Nos Apêndices e Anexos."],
+["M","Qual norma usou para elaboração do teu trabalho?","Normas APA (American Psychological Association).","ABNT (Associação Brasileira de Normas Técnicas).","Normas ISO 690."],
+["M","Que metodologia usou no seu trabalho?","Top-Down para o projecto da rede, com pesquisa aplicada e abordagem quantiqualitativa.","Bottom-Up, com pesquisa fundamental.","Scrum, com pesquisa experimental."],
+["M","Qual é a natureza do seu trabalho?","Pesquisa aplicada: resolve um problema prático real na Escola do Magistério do Soyo.","Pesquisa básica: gera teoria sem uso prático.","Pesquisa puramente bibliográfica."],
+["M","Os resultados do estudo são eficazes ou eficientes? Porquê?","Ambos: eficazes (objectivo geral alcançado) e eficientes (90% aprovam a rapidez e estabilidade).","Só eficazes: não se mediu o tempo de acesso.","Nenhum dos dois: a amostra era pequena."],
+["M","Quais são as variáveis utilizadas no teu trabalho?","Independente: a rede Wi-Fi com controlo de acesso. Dependentes: qualidade do acesso, eficiência das pesquisas, segurança e tempo de controlo.","Independente: a satisfação dos alunos. Dependente: a rede Wi-Fi.","Só existe variável dependente: a velocidade da internet."],
+["M","Sobre o gráfico de satisfação, justifica o porquê desses resultados.","90% de satisfação porque acabaram os processos manuais e a dependência de dados móveis pagos e de cybers.","Porque os alunos passaram a pagar o acesso.","Porque a amostra incluiu só professores."],
+["M","O que sugerem segundo os resultados obtidos?","Formar os utilizadores em segurança digital, criar manutenção proactiva e expandir os pontos de acesso.","Cobrar o acesso e dispensar manutenção.","Trocar o servidor por um router doméstico."],
+["M","Segundo os resultados obtidos, está satisfeita? Porquê?","Sim: a rede respondeu aos anseios da escola, eliminou a desigualdade no acesso e obteve 90% de aprovação.","Não: o objectivo geral não foi alcançado.","Em parte: só os professores ficaram satisfeitos."],
+["M","Onde foi o local de estudo?","Escola do Magistério do Soyo, Bairro Kinuica, município do Soyo, província do Zaire.","Escola do I Ciclo do Soyo, Bairro Kinuica.","Instituto Superior Nimi ya Lukeni, em Luanda."],
+["M","O que é uma citação da citação?","Citar um autor através de outro, sem ter lido a obra original: indica-se o autor e quem o citou.","Transcrever um parágrafo inteiro da obra original.","Citar o próprio autor do trabalho."],
+["M","O que significa a norma APA e ABNT?","APA: American Psychological Association; ABNT: Associação Brasileira de Normas Técnicas.","APA: Associação Portuguesa de Autores; ABNT: Associação Brasileira de Normas Técnicas.","APA: Associação dos Países Americanos; ABNT: Associação Angolana de Normas."],
+["M","Como se encontra delimitado o seu tema?","Local: Escola do Magistério do Soyo (Bairro Kinuica); público-alvo: os alunos da mesma escola.","Todas as escolas do Zaire, com professores como público-alvo.","Sem delimitação de local nem de público."],
+["M","Como foi definida a população e amostra da pesquisa?","População: 2.104 pessoas da comunidade escolar. Amostra: 50 por conveniência (38 alunos, 10 professores e 2 administrativos).","População: 50 pessoas. Amostra: 2.104, por sorteio.","População: 2.037 alunos. Amostra: 58 professores."],
+["M","Qual é o objectivo do estudo e por que decidiram traçá-lo?","Implementar uma rede Wi-Fi de apoio à pesquisa, porque a escola não tinha internet e os alunos gastavam dinheiro ou deslocavam-se.","Vender internet aos alunos, porque a escola precisava de receitas.","Criar um site da escola, porque não tinha presença online."],
+["M","Qual é o principal resultado ou conclusão do trabalho?","90% avaliaram a rede como rápida, estável e eficaz, com dados protegidos por WPA2-Enterprise/RADIUS.","50% avaliaram a rede como estável, mas insegura.","Só os professores aprovaram a rede."],
+["M","Que dificuldade encontraste durante as pesquisas?","A ausência total de infraestrutura prévia e o descontentamento dos alunos com a falta de internet.","A falta de bibliografia sobre redes.","A recusa da direcção da escola em participar."],
+["M","O que farias diferente se fosses repetir o trabalho?","Expandir os pontos de acesso a todo o campus logo no início e formar os utilizadores antes de distribuir as credenciais.","Mudar de tema e de escola.","Eliminar o controlo de acesso."],
+["M","Qual a contribuição do seu trabalho para a área, sociedade ou instituição?","Instituição: Wi-Fi moderno, seguro e centralizado. Sociedade: menos desigualdade no acesso ao conhecimento e mais literacia digital.","Instituição: lucro com a venda de acessos. Sociedade: nenhum impacto.","Apenas contribuição teórica, sem uso prático."],
+["M","Qual a diferença entre método e metodologia?","Método: o caminho para alcançar o objectivo; metodologia: os instrumentos usados para o alcançar.","Método: os instrumentos; metodologia: o caminho.","São exactamente a mesma coisa."],
+["M","O que diferencia a vossa pesquisa das outras com o mesmo tema?","Aborda o tema numa perspectiva, num contexto e com uma população diferentes: cada pesquisa é única.","Usa uma tecnologia que ninguém tinha usado.","Repete o mesmo estudo e os mesmos resultados."],
+["M","Quais são os actores-chave da sua pesquisa e por que foram escolhidos?","Alunos, professores e administrativos, por serem utilizadores directos e principais beneficiários da rede.","Só os gestores, por tomarem as decisões.","Os encarregados de educação, por pagarem as propinas."],
+["M","Por que adoptou a abordagem qualitativa e quantitativa?","A quantitativa mediu satisfação, alcance e tempos de resposta; a qualitativa captou percepções, necessidades e impacto pedagógico.","Porque é obrigatória em qualquer TFC.","Porque dispensa a recolha de dados."],
+["M","Quais critérios de inclusão e exclusão foram usados para seleccionar a amostra?","Inclusão: alunos matriculados, docentes e administrativos da escola. Exclusão: pessoas estranhas à instituição.","Inclusão: qualquer pessoa do bairro. Exclusão: os professores.","Inclusão: apenas gestores. Exclusão: alunos e docentes."],
+["M","Como foi feita a pesquisa? (métodos, amostra e técnicas)","Em 4 fases: diagnóstico (questionários e entrevistas), planeamento Top-Down, implementação (Windows Server 2022, AD DS, NPS/RADIUS, DHCP) e testes.","Em 2 fases: compra do equipamento e instalação.","Só com revisão bibliográfica, sem implementação."],
+["M","O que os resultados mostram?","90% consideram a rede rápida e fiável, e a segurança e a gestão de credenciais melhoraram com o Windows Server.","A rede é lenta e a segurança piorou.","Só 10% dos utilizadores aprovam a rede."],
+["M","O objectivo foi alcançado?","Sim: o objectivo geral foi plenamente alcançado, com a rede Wi-Fi corporativa implementada e validada.","Não: a rede não chegou a ser implementada.","Parcialmente: faltou validar a rede."],
+["M","Quais são os elementos pré-textuais, textuais e pós-textuais do seu trabalho?","Pré: capa, dedicatória, agradecimentos, índices, siglas, resumo e abstract. Textuais: introdução e capítulos I a III. Pós: conclusões, sugestões, referências, apêndices e anexo.","Pré: introdução e capítulos. Textuais: capa e resumo. Pós: índices.","Pré: referências e anexos. Textuais: dedicatória. Pós: capa."],
+["M","Quais foram as etapas de desenvolvimento do vosso projecto tecnológico?","Top-Down: requisitos (negócio, aplicações e rede), projecto lógico, projecto físico, execução e testes, documentação e melhoria contínua.","Projecto físico, projecto lógico e só depois os requisitos.","Compra de equipamento, instalação e entrega, sem documentação."],
+["M","Qual a importância e divergência entre apêndice e anexo?","Apêndice: elaborado pelo autor (ex.: questionário). Anexo: de terceiros, comprova ou ilustra (ex.: credencial da escola).","Apêndice: de terceiros. Anexo: elaborado pelo autor.","São sinónimos e vão no início do trabalho."],
+["M","Por que o seu trabalho é importante do ponto de vista social e académico?","Social: inclusão digital, com acesso gratuito e equitativo. Académico: pesquisas actualizadas e melhor produção científica.","Social: lucro para a escola. Académico: nenhum impacto.","Apenas importância económica."],
+["M","O que é uma citação?","Menção no texto de ideias ou informação de uma fonte externa para fundamentar as afirmações do investigador.","Lista final de todas as obras consultadas.","Texto escrito apenas pelo próprio autor."],
+["M","O que é uma citação directa e uma citação indirecta?","Directa: transcrição exacta do autor (entre aspas se curta). Indirecta: paráfrase com palavras do investigador, citando a fonte.","Directa: paráfrase sem fonte. Indirecta: transcrição exacta.","Ambas são transcrições exactas e sem fonte."],
+["M","Quais são os autores relevantes na sua fundamentação teórica?","Tanenbaum e Wetherall, Kurose e Ross, Stallings e Oppenheimer.","Gil, Marconi e Lakatos.","Cisco, Microsoft e Huawei."],
+["M","O que são variáveis dependente e independente?","Independente: a causa manipulada (a rede Wi-Fi). Dependente: o efeito medido (qualidade e rapidez das pesquisas).","Independente: o efeito medido. Dependente: a causa.","Independente: a amostra. Dependente: a população."],
+["R","O que é um switch?","Dispositivo que interliga redes locais iguais.","Dispositivo que interliga redes diferentes e escolhe o melhor caminho.","Dispositivo que apenas amplifica o sinal."],
+["R","O que é um roteador?","Dispositivo que interliga redes locais diferentes e escolhe o melhor caminho para os pacotes de dados.","Dispositivo que interliga redes locais iguais.","Cabo que liga os computadores entre si."],
+["R","Quais são os elementos da comunicação de dados?","Emissor, protocolo, meio de transmissão, mensagem e receptor.","Emissor, router, switch, mensagem e cabo.","Receptor, topologia, firewall, mensagem e servidor."],
+["R","Quantos tipos de cabos de rede existem e quais são?","Três tipos: coaxial, par trançado (STP e UTP) e fibra óptica.","Dois tipos: STP e UTP.","Três tipos: HDMI, VGA e USB."],
+["R","Qual é a topologia de rede usada no vosso trabalho?","Estrela","Barramento","Anel"],
+["R","O que é uma topologia estrela?","Um dispositivo central que interliga todos os restantes.","Todos os dispositivos partilham um único cabo.","Cada dispositivo liga a dois vizinhos, formando um círculo."],
+["R","O que é uma topologia de rede?","A forma como os dispositivos estão organizados na rede, física e logicamente.","O tipo de cabo usado para ligar os dispositivos.","O programa que gere os utilizadores da rede."],
+["R","Quais são os tipos de topologia de rede?","Barramento, anel, estrela, token ring, entre outras.","PAN, LAN, MAN e WAN.","UTP, STP, coaxial e fibra óptica."],
+["R","Qual a diferença entre topologia física e lógica?","Física: a disposição real de cabos e dispositivos. Lógica: o caminho que os dados percorrem na rede.","Física: o caminho dos dados. Lógica: a disposição dos cabos.","Não há diferença: são o mesmo conceito."],
+["R","Quantos tipos de rede existem?","PAN, LAN, MAN, WAN e WLAN.","Só LAN e WAN.","Barramento, anel e estrela."],
+["R","O que é uma rede PAN?","Rede pessoal: dispositivos comunicam dentro do alcance de uma pessoa.","Rede que interliga várias LANs.","Rede de longa distância que abrange grandes áreas."],
+["R","O que é uma rede LAN?","Rede de área local: alcança algumas centenas de metros (escritórios, residências, prédios comerciais e industriais).","Rede pessoal ao alcance de uma pessoa.","Rede de longa distância entre países."],
+["R","O que é uma rede MAN?","Rede que interliga várias LANs.","Rede pessoal ao alcance de uma pessoa.","Rede local sem fios por ondas de rádio."],
+["R","O que é uma rede WAN?","Wide Area Network: rede de longa distância que abrange grandes áreas geográficas.","Rede que interliga dispositivos de uma só pessoa.","Rede local de poucas centenas de metros."],
+["R","O que é uma rede WLAN?","Rede local sem fios: liga dispositivos por ondas de rádio ou pontos de acesso.","Rede local por cabo UTP.","Rede que interliga várias MAN."],
+["R","O que é o IP?","Protocolo da Internet: identificação lógica e única dada aos computadores na rede.","Protocolo que distribui configurações automaticamente.","Protocolo que associa nomes a endereços."],
+["R","O que é o protocolo DHCP?","Protocolo que distribui a configuração de rede de forma automática.","Protocolo que associa nomes a IPs.","Identificação lógica e única de um computador."],
+["R","O que é o protocolo DNS?","Protocolo que associa um nome a um endereço IP.","Protocolo que distribui IPs automaticamente.","Protocolo de transferência de ficheiros."],
+["R","Qual é o cabo de rede mais antigo utilizado?","Cabo coaxial.","Fibra óptica.","Cabo UTP."],
+["R","O que são requisitos funcionais?","As funções essenciais que uma aplicação ou sistema deve ter para funcionar.","Os registos de quem entrou na rede.","Apenas as exigências de hardware."],
+["R","O que são requisitos não funcionais?","Requisitos de hardware e software essenciais para a aplicação funcionar plenamente.","As funções principais que o sistema executa.","Os registos de quem entrou na rede."],
+["R","O que são os requisitos de listagem (auditoria)?","Servem para auditoria e verificação: consultar quem entrou na rede, com registos (logs).","As funções essenciais do sistema.","O número máximo de utilizadores permitidos."],
+["M","O que significa AD DS?","Active Directory Domain Services: o serviço de directório do Windows Server.","Automatic Directory Data System.","Access Data and Directory Security."],
+["M","Onde foram cadastrados os utilizadores para aceder à rede e aos seus recursos?","No AD DS, onde já estavam previamente cadastrados.","No router Wi-Fi.","Numa folha de Excel."],
+["M","Que tipos de redes de computadores existem?","Cabeadas e não cabeadas (sem fios).","Apenas PAN e LAN.","Físicas e lógicas."],
+["M","Qual o tipo de rede de computadores utilizado no trabalho?","Rede sem fios (Wi-Fi).","Rede cabeada em estrela.","Rede pessoal (PAN)."],
+["M","Que tipo de gestão foi utilizado no trabalho?","Gestão da rede.","Gestão financeira.","Gestão de projectos de software."],
+["M","Que tipos de segurança existem e qual foi utilizada no trabalho?","Física e lógica; no trabalho usou-se a segurança lógica.","Só física: cadeados e câmaras.","Só lógica; a física não existe."],
+["M","O que é um protocolo?","Um conjunto de regras que governam a comunicação de dados.","Um cabo que liga os dispositivos.","Um equipamento que escolhe o melhor caminho."],
+["M","Que tipo de protocolo foi utilizado no trabalho?","Protocolo de ligação de dados, com o padrão IEEE 802.11.","Protocolo de transporte, com o padrão IEEE 802.3.","Protocolo de aplicação, com o padrão FTP."],
+["M","Que serviço de rede foi utilizado no trabalho?","Serviço DHCP.","Serviço FTP.","Serviço de e-mail (SMTP)."],
+["M","Que tipo de controlo de acesso foi utilizado?","Controlo de acesso baseado em regras (RBAC).","Controlo de acesso discricionário (DAC).","Nenhum: a rede era aberta."],
+["M","Que equipamentos de rede foram utilizados?","Equipamentos activos.","Apenas equipamentos passivos.","Nenhum: só o servidor."],
+["M","Qual a diferença entre equipamento activo e passivo?","Os activos precisam de energia para funcionar; os passivos não.","Os passivos precisam de energia; os activos não.","Os activos só existem em redes sem fios."],
+["M","Quais destes são equipamentos activos?","Router, switch e access point.","Cabo UTP, patch panel e conectores RJ-45.","Calha, rack e tomadas."],
+["M","Qual a ferramenta de rede e segurança utilizada no trabalho?","Windows Server 2022.","IDS.","Wireshark."],
+["M","Por que utilizou o método indutivo?","Da observação directa na escola concluiu-se que, sem pesquisa digital, o rendimento dos alunos cai; logo, era urgente uma rede sem fios.","Para deduzir as especificações da rede a partir de uma teoria geral.","Para reunir todos os elementos no plano de implementação."],
+["M","Por que utilizou o método dedutivo?","Para deduzir as especificações da rede Wi-Fi: ampla cobertura nas salas e gestão de banda que priorize o tráfego pedagógico.","Para concluir, pela observação, que a escola precisava de rede.","Para calcular as percentagens do questionário."],
+["M","Por que utilizou o método sintético?","Para reunir todos os elementos num plano de implementação bem integrado.","Para observar a realidade da escola.","Para dividir o problema em partes isoladas."],
+["M","Qual o papel do questionário (método empírico)?","Recolher dados estatísticos sobre a necessidade de internet para pesquisa e as dificuldades da comunidade escolar.","Registar a observação do investigador sem inquirir ninguém.","Medir a velocidade da rede."],
+["M","Qual o papel da entrevista (método empírico)?","Foi aplicada a gestores e responsáveis administrativos da instituição.","Foi aplicada apenas aos alunos.","Foi aplicada a técnicos de empresas de telecomunicações."],
+["M","Por que usou o cálculo percentual (método matemático)?","Para examinar as frequências e proporções das respostas do questionário.","Para desenhar a topologia da rede.","Para configurar o servidor."],
+["R","Cite requisitos funcionais do seu trabalho.","Autenticação centralizada via RADIUS, controlo e filtragem de tráfego na firewall e gestão centralizada do serviço.","Baixo impacto no desempenho, interface acessível e escalabilidade.","Monitorização de dados para auditoria."],
+["R","O que é o RADIUS client?","Permite a comunicação e a autenticação remota de utilizadores.","Armazena os utilizadores no directório.","Atribui IPs automaticamente aos dispositivos."],
+["R","Cite um requisito de listagem do seu trabalho.","Monitorização de dados para auditoria.","Autenticação centralizada via RADIUS.","Escalabilidade e facilidade de manutenção."],
+["R","Cite requisitos não funcionais do seu trabalho.","Baixo impacto no desempenho da rede, interface de gestão acessível, escalabilidade e facilidade de manutenção.","Autenticação centralizada, filtragem na firewall e gestão centralizada.","Monitorização de dados para auditoria."],
+["R","Quais dispositivos de rede foram utilizados no trabalho?","Modem, home router e uma máquina Windows com o Windows Server.","Switch, access point e firewall dedicada.","Apenas um router e um switch."],
+["R","Qual a sequência lógica dos dispositivos na rede?","O modem liga ao home router, que está ligado ao Windows Server; o home router espalha o sinal Wi-Fi para os dispositivos sem fios.","O Windows Server liga ao modem e espalha o sinal Wi-Fi.","O home router liga ao modem e o Windows Server espalha o sinal Wi-Fi."],
+["M","Qual é o domínio gerido no Windows Server?","magisterio.local","soyo.local","escola.edu.ao"],
+["M","Qual é o nome (SSID) da rede?","Magistério do Soyo","Magistério Wi-Fi","Escola do Soyo"]
+];
+const Q=RAW.map((r,i)=>({n:i+1,c:r[0],q:r[1],a:r[2],x:[r[3],r[4]]}));
+const CAT={M:["Metodologia","Me"],R:["Redes","Wi"],A:["Todas as questões","★"]};
+const $=s=>document.querySelector(s),main=$("#main");
+const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const h=(t,c,x,k)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;(k||[]).forEach(n=>e.append(n));return e};
+const st={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+const L="ABCD";let adv,cur=[],idx=0,mode="step",cat="M",streak=0,tm=null,t0=0;
+
+/* navegação */
+const TABS=[["home","Início","⌂","Painel"],["M","Treino","Me","Metodologia"],["R",0,"Wi","Redes"],["A",0,"★","Todas as questões"],["hist","Progresso","↻","Histórico"]];
+TABS.forEach(([v,lb,tg,tx])=>{if(lb)$("#tabs").append(h("div","lbl",lb));const b=h("button","tab",null,[h("span","tag",tg),document.createTextNode(tx)]);b.dataset.v=v;b.onclick=()=>go(v);$("#tabs").append(b)});
+function go(v){clearInterval(tm);clearTimeout(adv);document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.v===v));v==="home"?home():v==="hist"?hist():config(v);scrollTo(0,0)}
+
+function home(){
+  const hs=st.get("hist",[]),best=hs.length?Math.max(...hs.map(x=>x.p)):0;
+  const g=h("div","grid");
+  [["M","Metodologia","m"],["R","Redes","r"],["A","Todas as questões","a"]].forEach(([k,t,c])=>{
+    const n=Q.filter(q=>k==="A"||q.c===k).length,b=h("button","tile "+c,null,[h("div","tag",CAT[k][1]),h("h4","",t),h("p","",n+" questões · toque para começar")]);b.onclick=()=>go(k);g.append(b)});
+  main.replaceChildren(h("div","card",null,[h("h2","","Prepare a defesa do TFC"),h("p","","Escolha uma categoria e o modo de treino. Cada questão tem 4 opções com respostas curtas, e no fim vê a pontuação e o gabarito."),g,
+    h("div","stats",null,[h("div","stat",null,[h("div","n serif",String(Q.length)),h("div","l","Questões")]),h("div","stat",null,[h("div","n serif",best+"%"),h("div","l","Melhor pontuação")]),h("div","stat",null,[h("div","n serif",String(hs.length)),h("div","l","Treinos feitos")])])]));
+}
+
+function config(k){
+  cat=k;const n=Q.filter(q=>k==="A"||q.c===k).length;
+  const m1=h("button","btn on","⚡ Uma a uma (feedback imediato)"),m2=h("button","btn","📋 Todas de uma vez");
+  mode="step";m1.onclick=()=>{mode="step";m1.classList.add("on");m2.classList.remove("on")};m2.onclick=()=>{mode="all";m2.classList.add("on");m1.classList.remove("on")};
+  const go1=h("button","btn amb","Começar quiz →");go1.onclick=start;
+  main.replaceChildren(h("div","card",null,[h("h2","",CAT[k][0]),h("p","",n+" questões em ordem aleatória, com as opções também baralhadas. Escolha o modo:"),h("div","row",null,[m1,m2]),go1]));
+}
+
+function start(){
+  const pool=Q.filter(q=>cat==="A"||q.c===cat);
+  cur=sh(pool).map(q=>{const e=Q.filter(d=>d!==q&&d.c===q.c&&!q.x.includes(d.a)).map(d=>[Math.abs(d.a.length-q.a.length)+Math.random()*30,d.a]).sort((a,b)=>a[0]-b[0])[0];
+    return{q,o:sh([q.a,...q.x,e[1]]),p:-1,lock:false}});
+  idx=0;streak=0;t0=Date.now();mode==="step"?step():all();
+}
+const clock=()=>{const s=(Date.now()-t0)/1e3|0;return(s/60|0)+":"+String(s%60).padStart(2,"0")};
+function mark(it){it.b.forEach((b,i)=>{b.disabled=true;if(it.o[i]===it.q.a)b.classList.add("ok");else if(i===it.p)b.classList.add("ko")})}
+function qBlock(it,i,inst,cb){
+  const w=h("div"),meta=h("div","meta",null,[h("span","pill "+(it.q.c==="M"?"m":""),CAT[it.q.c][0]),h("span","","Questão "+(i+1)+" de "+cur.length)]);
+  w.append(meta,h("div","qt","",null));w.lastChild.textContent=it.q.q;
+  it.b=it.o.map((o,oi)=>{const b=h("button","opt",null,[h("span","k",L[oi]),h("span","",o)]);
+    b.onclick=()=>{if(it.lock)return;it.p=oi;
+      if(inst){it.lock=true;mark(it);const r=o===it.q.a;streak=r?streak+1:0;
+        w.append(h("div","fb "+(r?"ok":"ko"),r?"✔ Correcto!"+(streak>1?" 🔥 "+streak+" seguidas":""):"✘ Incorrecto. Resposta certa: "+it.q.a));}
+      else it.b.forEach((x,j)=>x.classList.toggle("sel",j===oi));
+      cb&&cb()};
+    w.append(b);return b});
+  return w;
+}
+function step(){
+  const it=cur[idx],bar=h("div","bar",null,[h("div")]);bar.firstChild.style.width=(idx/cur.length*100)+"%";
+  const info=h("div","meta",null,[h("span","pill s","🔥 "+streak),h("span","sp","⏱ "+clock())]);
+  const nx=h("button","btn pri hide",idx+1<cur.length?"Avançar já →":"Ver resultado →");nx.onclick=()=>{clearTimeout(adv);idx++;idx<cur.length?step():finish()};
+  const blk=qBlock(it,idx,true,()=>{nx.classList.remove("hide");adv=setTimeout(()=>nx.onclick(),it.o[it.p]===it.q.a?700:1600)});
+  clearInterval(tm);tm=setInterval(()=>{info.lastChild.textContent="⏱ "+clock()},1000);
+  main.replaceChildren(h("div","card",null,[bar,info,blk,h("div","row",null,[nx])]));
+  onkey=e=>{const k=+e.key;if(k>=1&&k<=4)it.b[k-1]?.click();if((e.key==="Enter"||e.key==="ArrowRight")&&!nx.classList.contains("hide"))nx.click()};
+}
+function all(){
+  const sub=h("button","btn amb","Submeter respostas"),cnt=h("div","meta",null,[h("span","pill s","0/"+cur.length+" respondidas")]);
+  const upd=()=>cnt.firstChild.textContent=cur.filter(i=>i.p>=0).length+"/"+cur.length+" respondidas";
+  const card=h("div","card",null,[h("h2","",CAT[cat][0]),cnt]);
+  const bl=[];cur.forEach((it,i)=>{const b=qBlock(it,i,false,()=>{upd();const nx=bl[i+1];if(!it.sc){it.sc=1;setTimeout(()=>(nx||sub).scrollIntoView({behavior:"smooth",block:nx?"start":"center"}),250)}});bl.push(b);card.append(b,h("hr","q"))});
+  sub.onclick=()=>{const n=cur.filter(i=>i.p<0).length;if(n&&!confirm("Tem "+n+" questão(ões) por responder. Submeter?"))return;finish()};
+  card.append(h("div","row",null,[sub]));main.replaceChildren(card);onkey=null;
+}
+function finish(){
+  clearInterval(tm);onkey=null;const t=clock();
+  cur.forEach(i=>i.r=i.p>=0&&i.o[i.p]===i.q.a);
+  const ok=cur.filter(i=>i.r).length,n=cur.length,p=Math.round(ok/n*100);
+  const hs=st.get("hist",[]);hs.unshift({d:Date.now(),c:cat,ok,n,p,t});st.set("hist",hs.slice(0,30));
+  const big=h("div","big","0%"),msg=p>=80?"Excelente! Está pronta para a defesa. 🏆":p>=60?"Bom trabalho! Reveja as erradas e repita. 💪":"Continue a treinar: a repetição faz a diferença. 📚";
+  const t1=performance.now();(function f(){const k=Math.min(1,(performance.now()-t1)/900);big.textContent=Math.round(p*k)+"%";if(k<1)requestAnimationFrame(f)})();
+  const list=h("div");
+  cur.forEach(i=>{const d=h("div","rv"+(i.r?"":" no"),null,[h("b","",i.q.q)]);
+    if(!i.r)d.append(h("div","w",i.p<0?"✘ Sem resposta":"✘ A sua resposta: "+i.o[i.p]));
+    d.append(h("div","g","✔ Gabarito: "+i.q.a));d.dataset.r=i.r?1:0;list.append(d)});
+  const fl=h("div","row"),mk=(tx,only)=>{const b=h("button","btn"+(only?"":" on"),tx);b.onclick=()=>{fl.querySelectorAll(".btn").forEach(x=>x.classList.remove("on"));b.classList.add("on");list.childNodes.forEach(d=>d.classList.toggle("hide",only&&d.dataset.r==="1"))};return b};
+  fl.append(mk("Todas"),mk("Só as erradas",1));
+  const again=h("button","btn pri","Tentar novamente"),back=h("button","btn","← Categorias");again.onclick=start;back.onclick=()=>go("home");
+  main.replaceChildren(h("div","card",null,[h("div","res",null,[big,h("p","",ok+" de "+n+" correctas · "+t),h("p","",msg)]),h("div","row",null,[again,back])]),h("div","card",null,[h("h2","","Gabarito"),fl,list]));
+  scrollTo(0,0);
+}
+function hist(){
+  const hs=st.get("hist",[]),c=h("div","card",null,[h("h2","","Histórico de treinos")]);
+  if(!hs.length)c.append(h("p","","Ainda não fez nenhum treino."));
+  hs.forEach(x=>c.append(h("div","hrow",null,[h("span","",new Date(x.d).toLocaleDateString("pt-PT")+" · "+CAT[x.c][0]),h("b","",x.ok+"/"+x.n+" ("+x.p+"%) · "+x.t)])));
+  if(hs.length){const r=h("button","btn","Limpar histórico");r.onclick=()=>{st.set("hist",[]);hist()};c.append(h("div","row",null,[r]))}
+  main.replaceChildren(c);
+}
+addEventListener("keydown",e=>onkey&&onkey(e));let onkey=null;
+go("home");
+</script>
+</body>
+</html>
